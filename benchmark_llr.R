@@ -1,4 +1,4 @@
-source("llr_functions.R")
+source("llr.R")
 # Try out functions to see if it works on some data:
 library(reshape2) # package that contains "french_fries"
 data(french_fries)
