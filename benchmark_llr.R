@@ -1,4 +1,4 @@
-source("llr.R")
+source("llr_functions.R")
 # Try out functions to see if it works on some data:
 library(reshape2) # package that contains "french_fries"
 library(microbenchmark) # load microbenchmark package
