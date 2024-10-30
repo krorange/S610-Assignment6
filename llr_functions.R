@@ -24,7 +24,6 @@ make_weight_matrix = function(z, x, omega) {
   weights = W(distances)
   
   # Return a diagonal matrix with the weights
-  Wz = diag(weights)
   return(Wz)
 }
 
