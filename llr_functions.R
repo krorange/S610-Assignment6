@@ -6,9 +6,11 @@ llr = function(x, y, z, omega) {
 
 # Compute f hat function:
 compute_f_hat = function(z, x, y, omega) {
-  Wz = make_weight_matrix(z, x, omega)
+  Wz = diag(make_weight_matrix(z, x, omega))
   X = make_predictor_matrix(x)
-  f_hat = c(1, z) %*% solve(t(X) %*% Wz %*% X) %*% t(X) %*% Wz %*% y
+  WX = sweep(X, 1, Wz, `*`)
+  Wy = y * Wz
+  f_hat = c(1, z) %*% solve(t(X) %*% WX) %*% t(X) %*% Wy
   return(f_hat)
 }
 
@@ -24,8 +26,7 @@ make_weight_matrix = function(z, x, omega) {
   weights = W(distances)
   
   # Return a diagonal matrix with the weights
-  Wz = diag(weights)
-  return(Wz)
+  return(weights)
 }
 
 # Below is our task to write predictor matrix function:
