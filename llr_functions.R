@@ -24,7 +24,8 @@ make_weight_matrix = function(z, x, omega) {
   weights = W(distances)
   
   # Return a diagonal matrix with the weights
-  return(weights)
+  Wz = diag(weights)
+  return(Wz)
 }
 
 # Below is our task to write predictor matrix function:
@@ -34,3 +35,4 @@ make_predictor_matrix = function(x) {
   X = cbind(rep(1, n), x)
   return(X)
 }
+
